@@ -39,6 +39,9 @@ const items = state.rates.map(({ ccy, base_ccy, buy, sale }) => ({
   subtitle: state.cached
     ? `From cache ${moment(state.cachedTime).fromNow()}`
     : "Updated just now",
+  icon: {
+    path: getCurrency({ name: ccy.toLowerCase() }).icon,
+  },
 }));
 
 alfy.output(items);

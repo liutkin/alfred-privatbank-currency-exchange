@@ -36,14 +36,16 @@ module.exports = async operation => {
 
     const baseAmount = numeral(userCurrency[operation]).format();
     const title = `${targetSymbol} ${total.format()}`;
-
     const subtitle = `${actionName} ${
       userValidCurrency.symbol
     } ${userAmount.format()} for ${targetSymbol} ${total.format()} ・ ${
       userValidCurrency.symbol
-    } 1 for ${targetSymbol} ${baseAmount})`;
+    } 1 for ${targetSymbol} ${baseAmount}`;
+    const icon = {
+      path: getCurrency({ name: userCurrency.ccy.toLowerCase() }).icon,
+    };
 
-    alfy.output([{ title, subtitle }]);
+    alfy.output([{ title, subtitle, icon }]);
   } else {
     alfy.output([
       {
@@ -51,6 +53,9 @@ module.exports = async operation => {
           userAmount.format() || "how much"
         } of which currency?`,
         subtitle: "The format is <amount> <currency>",
+        icon: {
+          path: "./icon/wait.png",
+        },
       },
     ]);
   }
