@@ -30,18 +30,24 @@ if (response.length >= 4) {
   return;
 }
 
-const items = state.rates.map(({ ccy, base_ccy, buy, sale }) => ({
-  title: `${ccy} ・ ${
+const items = state.rates.map(({ ccy, base_ccy, buy, sale }) => {
+  const arg = (title = `${ccy} ・ ${
     getCurrency({ name: base_ccy.toLowerCase() }).symbol
   } ${numeral(buy).format()} ⇣ ・ ${
     getCurrency({ name: base_ccy.toLowerCase() }).symbol
-  } ${numeral(sale).format()} ⇡`,
-  subtitle: state.cached
+  } ${numeral(sale).format()} ⇡`);
+  const subtitle = state.cached
     ? `From cache ${moment(state.cachedTime).fromNow()}`
-    : "Updated just now",
-  icon: {
+    : "Updated just now";
+  const icon = {
     path: getCurrency({ name: ccy.toLowerCase() }).icon,
-  },
-}));
+  };
+  return {
+    title,
+    subtitle,
+    arg,
+    icon,
+  };
+});
 
 alfy.output(items);

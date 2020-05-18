@@ -35,17 +35,17 @@ module.exports = async operation => {
         : getCurrency({ name: "uah" }).symbol;
 
     const baseAmount = numeral(userCurrency[operation]).format();
-    const title = `${targetSymbol} ${total.format()}`;
+    const arg = (title = `${targetSymbol} ${total.format()}`);
     const subtitle = `${actionName} ${
       userValidCurrency.symbol
     } ${userAmount.format()} for ${targetSymbol} ${total.format()} ・ ${
       userValidCurrency.symbol
     } 1 for ${targetSymbol} ${baseAmount}`;
     const icon = {
-      path: getCurrency({ name: userCurrency.ccy.toLowerCase() }).icon,
+      path: operation === "buy" ? "./icon/buy.png" : "./icon/sale.png",
     };
 
-    alfy.output([{ title, subtitle, icon }]);
+    alfy.output([{ title, subtitle, arg, icon }]);
   } else {
     alfy.output([
       {

@@ -5,7 +5,60 @@
 	<key>bundleid</key>
 	<string>privatbank_currency_converter</string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>154CEDB7-DC79-480C-A67C-4513E0F69B58</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>80E0B7EB-600A-4178-8F01-BBBF13C192EF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>238DAE64-A339-4A2E-8CD1-C2F0265FAE53</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>154CEDB7-DC79-480C-A67C-4513E0F69B58</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>709CA175-8D86-40DD-9974-8DB49642A5FE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>154CEDB7-DC79-480C-A67C-4513E0F69B58</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F80359A1-AF70-489D-93C1-40120DD9D297</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>154CEDB7-DC79-480C-A67C-4513E0F69B58</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>Vladimir Liutkin</string>
 	<key>description</key>
@@ -13,58 +66,9 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Privatbank currency converter</string>
+	<string>Privatbank rates</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>pbs</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node sale.js "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>238DAE64-A339-4A2E-8CD1-C2F0265FAE53</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -91,7 +95,7 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string></string>
+				<string>Loading</string>
 				<key>script</key>
 				<string>./node_modules/.bin/run-node buy.js "$1"</string>
 				<key>scriptargtype</key>
@@ -99,9 +103,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>&lt;amount&gt; &lt;currency&gt;</string>
 				<key>title</key>
-				<string></string>
+				<string>100 usd</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -111,6 +115,93 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>F80359A1-AF70-489D-93C1-40120DD9D297</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>154CEDB7-DC79-480C-A67C-4513E0F69B58</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Copied to clipboard</string>
+				<key>title</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>80E0B7EB-600A-4178-8F01-BBBF13C192EF</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>pbs</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Loading</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node sale.js "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>&lt;amount&gt; &lt;currency&gt;</string>
+				<key>title</key>
+				<string>100 usd</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>238DAE64-A339-4A2E-8CD1-C2F0265FAE53</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -168,26 +259,40 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>154CEDB7-DC79-480C-A67C-4513E0F69B58</key>
+		<dict>
+			<key>xpos</key>
+			<integer>385</integer>
+			<key>ypos</key>
+			<integer>255</integer>
+		</dict>
 		<key>238DAE64-A339-4A2E-8CD1-C2F0265FAE53</key>
 		<dict>
 			<key>xpos</key>
-			<integer>115</integer>
+			<integer>140</integer>
 			<key>ypos</key>
-			<integer>95</integer>
+			<integer>255</integer>
 		</dict>
 		<key>709CA175-8D86-40DD-9974-8DB49642A5FE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>115</integer>
+			<integer>140</integer>
 			<key>ypos</key>
-			<integer>330</integer>
+			<integer>375</integer>
+		</dict>
+		<key>80E0B7EB-600A-4178-8F01-BBBF13C192EF</key>
+		<dict>
+			<key>xpos</key>
+			<integer>600</integer>
+			<key>ypos</key>
+			<integer>255</integer>
 		</dict>
 		<key>F80359A1-AF70-489D-93C1-40120DD9D297</key>
 		<dict>
 			<key>xpos</key>
-			<integer>115</integer>
+			<integer>140</integer>
 			<key>ypos</key>
-			<integer>210</integer>
+			<integer>135</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
