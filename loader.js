@@ -1,8 +1,9 @@
 const alfy = require("alfy");
 const numeral = require("numeral");
 
-const getCurrency = require("./getCurrency");
-const reportFetchRateError = require("./reportFetchRateError");
+const getCurrency = require("./get-currency");
+const reportFetchRateError = require("./report-fetch-rate-error");
+const { requestURL, dividerSymbol } = require("./config");
 
 numeral.defaultFormat("0.00");
 
@@ -14,9 +15,7 @@ module.exports = async operation => {
   const actionName = operation === "buy" ? "Buying" : "Selling";
 
   if (userAmount.value() > 0 && userValidCurrency) {
-    const response = await alfy.fetch(
-      "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
-    );
+    const response = await alfy.fetch(requestURL);
 
     if (response.length < 4) {
       reportFetchRateError();
@@ -35,10 +34,11 @@ module.exports = async operation => {
         : getCurrency({ name: "uah" }).symbol;
 
     const baseAmount = numeral(userCurrency[operation]).format();
-    const arg = (title = `${targetSymbol} ${total.format()}`);
+    const title = `${targetSymbol} ${total.format()}`;
+    const arg = title;
     const subtitle = `${actionName} ${
       userValidCurrency.symbol
-    } ${userAmount.format()} for ${targetSymbol} ${total.format()} ・ ${
+    } ${userAmount.format()} for ${targetSymbol} ${total.format()} ${dividerSymbol} ${
       userValidCurrency.symbol
     } 1 for ${targetSymbol} ${baseAmount}`;
     const icon = {

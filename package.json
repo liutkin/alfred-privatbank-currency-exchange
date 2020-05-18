@@ -1,17 +1,38 @@
 {
-  "name": "user.workflow.C63C7171-2DAB-4E5A-ABCA-4C83A6AB8D70",
+  "name": "alfred-privatbank-rates",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Privatbank rates and currency exchage tool based on public API",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "xo && ava"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "privatbank",
+    "rates",
+    "currency",
+    "exchange",
+    "alfred",
+    "alfred-workflow",
+    "workflow",
+    "alfy"
+  ],
+  "author": {
+    "name": "Vladimir Liutkin",
+    "email": "vladimir@liutkin.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
   "dependencies": {
     "alfy": "^0.9.1",
     "moment": "^2.25.3",
     "numeral": "^2.0.6"
+  },
+  "devDependencies": {
+    "ava": "^3.8.2",
+    "xo": "^0.30.0"
+  },
+  "xo": {
+    "prettier": true
   }
 }
