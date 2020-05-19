@@ -6,6 +6,7 @@ const moment = require("moment");
 
 const getCurrency = require("./get-currency");
 const reportFetchRateError = require("./report-fetch-rate-error");
+const fixRurToRub = require("./fix-rur-to-rub");
 const {
   requestURL,
   buySymbol,
@@ -16,7 +17,7 @@ const {
 numeral.defaultFormat("0.00");
 
 (async () => {
-  const response = await alfy.fetch(requestURL);
+  const response = fixRurToRub(await alfy.fetch(requestURL));
   const state = {
     rates: null,
     cached: null,

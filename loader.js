@@ -3,6 +3,7 @@ const numeral = require("numeral");
 
 const getCurrency = require("./get-currency");
 const reportFetchRateError = require("./report-fetch-rate-error");
+const fixRurToRub = require("./fix-rur-to-rub");
 const { requestURL, dividerSymbol } = require("./config");
 
 numeral.defaultFormat("0.00");
@@ -15,7 +16,7 @@ module.exports = async operation => {
   const actionName = operation === "buy" ? "Buying" : "Selling";
 
   if (userAmount.value() > 0 && userValidCurrency) {
-    const response = await alfy.fetch(requestURL);
+    const response = fixRurToRub(await alfy.fetch(requestURL));
 
     if (response.length < 4) {
       reportFetchRateError();

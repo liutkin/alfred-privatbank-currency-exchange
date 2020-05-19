@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>privatbank_currency_converter</string>
+	<string>privatbank_currency_exchange</string>
 	<key>connections</key>
 	<dict>
 		<key>154CEDB7-DC79-480C-A67C-4513E0F69B58</key>
@@ -62,11 +62,11 @@
 	<key>createdby</key>
 	<string>Vladimir Liutkin</string>
 	<key>description</key>
-	<string>Converts currency using privatbank public API</string>
+	<string>Privatbank currency exchange rates based on public API</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Privatbank rates</string>
+	<string>Privatbank currency exchange</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -103,9 +103,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>&lt;amount&gt; &lt;currency&gt;</string>
+				<string>100 usd, 42 eur, 1450 rub, 2 btc</string>
 				<key>title</key>
-				<string>100 usd</string>
+				<string>&lt;amount&gt; &lt;usd | eur | rub | btc&gt;</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -190,9 +190,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>&lt;amount&gt; &lt;currency&gt;</string>
+				<string>100 usd, 42 eur, 1450 rub, 2 btc</string>
 				<key>title</key>
-				<string>100 usd</string>
+				<string>&lt;amount&gt; &lt;usd | eur | rub | btc&gt;</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>

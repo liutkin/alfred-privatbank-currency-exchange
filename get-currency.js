@@ -10,7 +10,7 @@ const currencies = [
     icon: "./icon/euro.png",
   },
   {
-    name: "rur",
+    name: "rub",
     symbol: "₽",
     icon: "./icon/ruble.png",
   },

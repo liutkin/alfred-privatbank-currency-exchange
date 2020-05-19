@@ -1,7 +1,7 @@
 {
-  "name": "alfred-privatbank-rates",
-  "version": "1.0.0",
-  "description": "Privatbank rates and currency exchage tool based on public API",
+  "name": "alfred-privatbank-currency-exchange",
+  "version": "1.0.1",
+  "description": "Privatbank currency exchange rates based on public API",
   "scripts": {
     "test": "xo && ava"
   },
