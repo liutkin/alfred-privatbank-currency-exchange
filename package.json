@@ -3,15 +3,17 @@
   "version": "1.0.1",
   "description": "Privatbank currency exchange rates based on public API",
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
   },
   "keywords": [
     "privatbank",
     "rates",
     "currency",
     "exchange",
-    "alfred",
     "alfred-workflow",
+    "alfred",
     "workflow",
     "alfy"
   ],
