@@ -51,9 +51,9 @@ module.exports = async operation => {
     alfy.output([
       {
         title: `${actionName} ${
-          userAmount.format() || "how much"
+          userAmount.value() > 0 ? userAmount.format() : "how much"
         } of which currency?`,
-        subtitle: "The format is <amount> <currency>",
+        subtitle: "The format is <amount> <usd | eur | rub | btc>",
         icon: {
           path: "./icon/wait.png",
         },
