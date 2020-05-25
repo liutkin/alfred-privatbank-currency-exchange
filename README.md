@@ -1,4 +1,4 @@
-> Ukrainian Privatbank currency exchange rates based on public API
+> [Alfred](https://www.alfredapp.com/) workflow for Ukrainian Privatbank currency exchange rates.
 
 # Install
 
@@ -28,6 +28,11 @@ Display buying rates for given currency amount in hryvnia.
 
 > `pbs` stands for **p**rivat **b**ank **s**ale.
 
-Display selling rates for given currency amount in hryvnia
+Display selling rates for given currency amount in hryvnia.
 
 ![pbs](pbs.gif "pbs")
+
+# Related
+
+- [Alfred workflows](https://www.alfredapp.com/workflows/)
+- [Privatbank currency rates publick API](https://api.privatbank.ua/#p24/exchange)
