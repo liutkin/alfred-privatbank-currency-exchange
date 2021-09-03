@@ -13,7 +13,16 @@ module.exports = async operation => {
 
   const userAmount = numeral(amount);
   const userValidCurrency = getCurrency({ name: currency });
-  const actionName = operation === "buy" ? "Buying" : "Selling";
+
+  var actionName = "Selling";
+  var icon = "./icon/sale.png";
+  if (operation === "buy") {
+    actionName = "Buying";
+    icon = "./icon/buy.png";
+  } else if (operation === "medium") {
+    actionName = "Medium";
+    icon = "./icon/medium.png";
+  }
 
   if (userAmount.value() > 0 && userValidCurrency) {
     const response = fixRurToRub(await alfy.fetch(requestURL));
@@ -27,7 +36,14 @@ module.exports = async operation => {
       ({ ccy }) => ccy.toLowerCase() === currency
     );
 
-    const total = userAmount.clone().multiply(userCurrency[operation]);
+    var resultAmount;
+    if (operation === "medium") {
+      resultAmount = (parseFloat(userCurrency['buy']) + parseFloat(userCurrency['sale'])) / 2;
+    } else {
+      resultAmount = userCurrency[operation];
+    }
+
+    const total = userAmount.clone().multiply(resultAmount);
 
     const targetSymbol =
       userCurrency.ccy.toLowerCase() === "btc"
@@ -42,9 +58,6 @@ module.exports = async operation => {
     } ${userAmount.format()} for ${targetSymbol} ${total.format()} ${dividerSymbol} ${
       userValidCurrency.symbol
     } 1 for ${targetSymbol} ${baseAmount}`;
-    const icon = {
-      path: operation === "buy" ? "./icon/buy.png" : "./icon/sale.png",
-    };
 
     alfy.output([{ title, subtitle, arg, icon }]);
   } else {
