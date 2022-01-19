@@ -1,3 +1,5 @@
+# 🚨 This repo is no longer being developed 🚨
+
 > [Alfred](https://www.alfredapp.com/) workflow for Ukrainian Privatbank currency exchange rates.
 
 # Install
